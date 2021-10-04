@@ -32,17 +32,17 @@ class CreateAppTables extends Migration
             $table->string('name');
         });
 
-        Schema::create('employees', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->foreignId('career_id')->constrained();
-            $table->string('name');
-        });
+        // Schema::create('employees', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->timestamps();
+        //     $table->foreignId('career_id')->constrained();
+        //     $table->string('name');
+        // });
 
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('employee_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('department_id')->constrained();
             $table->string('name');
         });
@@ -50,7 +50,7 @@ class CreateAppTables extends Migration
         Schema::create('primary_skils', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('employee_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->string('name');
         });
 
