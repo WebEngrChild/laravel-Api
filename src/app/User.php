@@ -36,4 +36,40 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //一対多（プロジェクト）
+    public function projects()
+    {
+      return $this->hasMany(Project::class);
+    }
+
+    //多対多（部署）
+    public function departments()
+    {
+        return $this->belongsToMany(Department::class);
+    }
+
+    //一対多（メインスキル）
+    public function primarySkils()
+    {
+        return $this->hasMany(PrimarySkil::class);
+    }
+
+    //一対多対多（サブスキル）
+    public function secondarySkils()
+    {
+        return $this->hasManyThrough(SecondarySkil::class, PrimarySkil::class);
+    }
+
+    //多対一（新卒 or 中途）
+    public function career()
+    {
+        return $this->belongsTo(Career::class);
+    }
+
+    //多対一対一（学卒・院卒）
+    public function background()
+    {
+        return $this->belongsTo(Background::class, Career::class);
+    }
 }
