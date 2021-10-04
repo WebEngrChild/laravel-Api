@@ -21,7 +21,7 @@
      export default {
         methods: {
             openWindow: function() {
-            const url = "http://localhost:90/ssr"
+            const url = "http://localhost:2000/hello"
             window.open(url, '_blank', 'width=1024,height=768,scrollbars=yes,resizable=yes')
             }
         }
