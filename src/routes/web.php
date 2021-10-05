@@ -22,6 +22,8 @@ Route::delete('api/tasks/{task}', 'TaskController@destroy');
 
 Route::get('/api', function () { return 'Laravel×NuxtでSSR（サーバーサイドレンダリング）(·:ﾟдﾟ:·)ﾊｧﾊｧ'; });
 
+Route::get('/data', 'UserDataController@getprojects');
+
 Route::get('/{any}', function() {
     return view('app');
 })->where('any', '.*');

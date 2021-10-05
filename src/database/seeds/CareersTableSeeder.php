@@ -12,6 +12,18 @@ class CareersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Career::class, 20)->create();
+        // factory(Career::class, 10)->create();
+
+        //faker呼び出し
+        $faker = Faker\Factory::create('ja_JP');
+
+        for ($i = 1; $i <= 10; $i++) {
+            Career::create([
+                'name' => 'career_' . $faker->numberBetween($min = 1, $max = 10),
+                'created_at' => $faker->datetime($max = 'now', $timezone = date_default_timezone_get()),
+                'updated_at' => $faker->datetime($max = 'now', $timezone = date_default_timezone_get()),
+                'background_id' => $i
+            ]);
+        }
     }
 }

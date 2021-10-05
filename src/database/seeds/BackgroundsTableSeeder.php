@@ -12,6 +12,6 @@ class BackgroundsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Background::class, 20)->create();
+        factory(Background::class, 10)->create();
     }
 }

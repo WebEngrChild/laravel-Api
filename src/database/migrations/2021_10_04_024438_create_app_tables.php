@@ -32,13 +32,6 @@ class CreateAppTables extends Migration
             $table->string('name');
         });
 
-        // Schema::create('employees', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->timestamps();
-        //     $table->foreignId('career_id')->constrained();
-        //     $table->string('name');
-        // });
-
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

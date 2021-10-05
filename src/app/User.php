@@ -40,28 +40,28 @@ class User extends Authenticatable
     //一対多（プロジェクト）
     public function projects()
     {
-      return $this->hasMany(Project::class);
+      return $this->hasMany(Project::class, 'user_id');
     }
 
-    //多対多（部署）
+    //多対多（部署）OK！！
     public function departments()
     {
-        return $this->belongsToMany(Department::class);
+        return $this->belongsToMany(Department::class, 'projects', 'user_id', 'department_id');
     }
 
-    //一対多（メインスキル）
+    //一対多（メインスキル）OK！！
     public function primarySkils()
     {
         return $this->hasMany(PrimarySkil::class);
     }
 
-    //一対多対多（サブスキル）
+    //一対多対多（サブスキル）OK！！
     public function secondarySkils()
     {
         return $this->hasManyThrough(SecondarySkil::class, PrimarySkil::class);
     }
 
-    //多対一（新卒 or 中途）
+    //多対一（新卒 or 中途）OK！！
     public function career()
     {
         return $this->belongsTo(Career::class);
@@ -70,6 +70,6 @@ class User extends Authenticatable
     //多対一対一（学卒・院卒）
     public function background()
     {
-        return $this->belongsTo(Background::class, Career::class);
+        return $this->hasOneThrough(Background::class, Career::class, 'background_id');
     }
 }
