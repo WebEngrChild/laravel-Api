@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Background;
+use App\Department;
 
-class BackgroundsTableSeeder extends Seeder
+class DepartmentsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class BackgroundsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Background::class, 20)->create();
+        factory(Department::class, 20)->create();
     }
 }

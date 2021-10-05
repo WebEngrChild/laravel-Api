@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Background;
+use App\User;
 
-class BackgroundsTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class BackgroundsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Background::class, 20)->create();
+        factory(User::class, 20)->create();
     }
 }

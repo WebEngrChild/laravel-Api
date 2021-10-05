@@ -1,7 +1,7 @@
 <?php
 
-use App\Career;
 use Illuminate\Database\Seeder;
+use App\Career;
 
 class CareersTableSeeder extends Seeder
 {

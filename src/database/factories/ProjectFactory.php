@@ -2,14 +2,15 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Career;
+use App\Project;
 use Faker\Generator as Faker;
 
-$factory->define(Career::class, function (Faker $faker) {
+$factory->define(Project::class, function (Faker $faker) {
     return [
-        'name' => 'career_' . $faker->numberBetween($min = 1, $max = 10),
+        'name' => 'projects_' . $faker->numberBetween($min = 1, $max = 10),
         'created_at' => $faker->datetime($max = 'now', $timezone = date_default_timezone_get()),
         'updated_at' => $faker->datetime($max = 'now', $timezone = date_default_timezone_get()),
-        'background_id' => $faker->numberBetween($min = 1, $max = 5),
+        'department_id' => $faker->numberBetween($min = 1, $max = 5),
+        'user_id' => $faker->numberBetween($min = 1, $max = 10),
     ];
 });
