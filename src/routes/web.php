@@ -21,7 +21,7 @@ Route::get('api/tasks/{task}', 'TaskController@show');
 Route::put('api/tasks/{task}', 'TaskController@update');
 Route::delete('api/tasks/{task}', 'TaskController@destroy');
 
-//SSRテスト用
+// //SSRテスト用
 Route::get('/api', function () { return 'Laravel×NuxtでSSR（サーバーサイドレンダリング）(·:ﾟдﾟ:·)ﾊｧﾊｧ'; });
 
 //SQL検証用

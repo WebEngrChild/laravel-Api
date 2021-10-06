@@ -37,7 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //一対多（プロジェクト）
+    // 一対多（プロジェクト）OK！！
     public function projects()
     {
       return $this->hasMany(Project::class, 'user_id');
@@ -67,9 +67,9 @@ class User extends Authenticatable
         return $this->belongsTo(Career::class);
     }
 
-    //多対一対一（学卒・院卒）
-    public function background()
-    {
-        return $this->hasOneThrough(Background::class, Career::class, 'background_id');
-    }
+    //多対一対一（学卒・院卒）これはeloquentでは難しい
+    // public function background()
+    // {
+    //     return $this->hasOneThrough(Background::class, Career::class, 'background_id');
+    // }
 }
