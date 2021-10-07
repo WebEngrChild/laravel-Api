@@ -28,7 +28,7 @@ Route::get('/api', function () { return 'Laravel×NuxtでSSR（サーバーサ�
 Route::get('/data', 'UserDataController@getprojects');
 
 //デバッグ勉強用
-Route::get('/debug', 'TestController@hoge');
+Route::get('/debug', 'DebugController@hoge');
 
 //上記以外例外用
 Route::get('/{any}', function() {
