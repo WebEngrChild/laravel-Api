@@ -31,11 +31,17 @@ class SampleTest extends TestCase
     // }
 
     //■■テスト２：DebugControllerの返却値='処理結果'を確認する
-    public function test_statusCode()
+    // public function test_statusCode()
+    // {
+    //     $debug = new DebugController;
+    //     $response = $debug->hoge();
+    //     $this->assertSame('処理結果', $response);
+    // }
+
+    public function setUp():void
     {
-        $debug = new DebugController;
-        $response = $debug->hoge();
-        $this->assertSame('処理結果', $response);
+        dd(env('APP_ENV'), env('DB_HOST'), env('DB_DATABASE'));
+        parent::setUp();
     }
 
 }
