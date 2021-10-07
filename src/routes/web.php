@@ -24,8 +24,11 @@ Route::delete('api/tasks/{task}', 'TaskController@destroy');
 // //SSRテスト用
 Route::get('/api', function () { return 'Laravel×NuxtでSSR（サーバーサイドレンダリング）(·:ﾟдﾟ:·)ﾊｧﾊｧ'; });
 
-//SQL検証用
+//SQL勉強用
 Route::get('/data', 'UserDataController@getprojects');
+
+//デバッグ勉強用
+Route::get('/debug', 'TestController@hoge');
 
 //上記以外例外用
 Route::get('/{any}', function() {
