@@ -47,23 +47,51 @@ class DatabaseTest extends TestCase
 
     //■■テスト４■■
     //テスト２＋３を同じ関数内で行う
-    use RefreshDatabase; //このトレイトでテスト利用後にデータを破棄してくれる
+    // use RefreshDatabase; //このトレイトでテスト利用後にデータを破棄してくれる
 
-    public function testCheckRecod()
+    // public function testCheckRecod()
+    // {
+    //     //DBの登録
+        // $department = new Department();
+        // $department->created_at = date("Y/m/d H:i:s");
+        // $department->updated_at = date("Y/m/d H:i:s");
+        // $department->name = 'department_name_test_1';
+        // $saveDepartment = $department->save();
+
+    //     //カラムの確認
+    //     $department_name = [
+    //         'name' => 'department_name_test_1',
+    //     ];
+    //     $this->assertDatabaseHas('departments', $department_name);
+    // }
+
+    //■■テスト５■■
+    //Factory側では特に指定せずこちらで配列でカラム指定してデータ登録
+    use RefreshDatabase;
+
+    public function testDatabase()
     {
-        //DBの登録
-        $department = new Department();
-        $department->created_at = date("Y/m/d H:i:s");
-        $department->updated_at = date("Y/m/d H:i:s");
-        $department->name = 'department_name_test_1';
-        $saveDepartment = $department->save();
-
-        //カラムの確認
-        $department_name = [
-            'name' => 'department_name_test_1',
+        $department = [
+            'created_at' => date("Y/m/d H:i:s"),
+            'updated_at' => date("Y/m/d H:i:s"),
+            'name' => 'department_name_test_2',
         ];
-        $this->assertDatabaseHas('departments', $department_name);
+
+        factory(Department::class)->create($department);
+
+        $this->assertDatabaseHas('departments', $department);
     }
+
+    //■■テスト６■■
+    //Factory側（Fakerでカラム作成）を利用してデータ登録
+    // use RefreshDatabase;
+
+    // public function testDatabase()
+    // {
+    //     $departments = factory(Department::class, 3)->create();
+    //     $bookCount = count($departments) == 3;
+    //     $this->assertTrue($bookCount);
+    // }
 
     // ■■サンプル用■■
     // /**
