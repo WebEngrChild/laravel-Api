@@ -13,26 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-//Nuxt用API
-Route::get('api/tasks', 'TaskController@index');
-Route::post('api/tasks', 'TaskController@store');
-Route::get('api/tasks/{task}', 'TaskController@show');
-Route::put('api/tasks/{task}', 'TaskController@update');
-Route::delete('api/tasks/{task}', 'TaskController@destroy');
-
-// //SSRテスト用
-Route::get('/api', function () { return 'Laravel×NuxtでSSR（サーバーサイドレンダリング）(·:ﾟдﾟ:·)ﾊｧﾊｧ'; });
-
-//SQL勉強用
-Route::get('/data', 'UserDataController@getprojects');
-
-//デバッグ勉強用
-Route::get('/debug', 'DebugController@hoge');
-
-//上記以外例外用
-Route::get('/{any}', function() {
-    return view('app');
-})->where('any', '.*');
-
-
+Route::get('/', function () {
+    return view('welcome');
+});
