@@ -15,6 +15,10 @@ RUN apt-get update && \
     dnsutils \
     netcat \
     iputils-ping net-tools \
+    nodejs npm \
     && docker-php-ext-install pdo_mysql bcmath
+
+# npm install
+RUN npm install npm@latest -g
 
 WORKDIR /var/www/html

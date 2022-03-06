@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/personal', function(){
+    $user = App\Models\User::find(4);
+    $token = $user->createToken('token_for_user1')->accessToken;
+    return response()->json(['token' => $token]);
+});

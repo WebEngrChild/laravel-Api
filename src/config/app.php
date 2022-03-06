@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
+    'next_app_url' => env('NEXT_APP_URL'),
+    'next_app_client_id' => env('NEXT_APP_CLIENT_ID'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
