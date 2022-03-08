@@ -32,6 +32,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // Next.jsからのログインであれば認証後にリダイレクト
+        $client_id = $request->get('client_id');
+        if ($client_id == 'nextapp') {
+            return redirect(\Config::get('app.next_app_url'));
+        }
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -49,6 +55,14 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
+        // Next.jsからのログアウトであればidをリクエストパラメーターに付与してログイン画面に戻る
+        $client_id = $request->get('client_id');
+        $params = [];
+        if ($client_id) {
+            $params['client_id'] = $client_id;
+            return redirect(route('login', $params, null));
+        }
+        
         return redirect('/');
     }
 }

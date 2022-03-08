@@ -18,6 +18,9 @@ RUN apt-get update && \
     nodejs npm \
     && docker-php-ext-install pdo_mysql bcmath
 
+# xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+
 # npm install
 RUN npm install npm@latest -g
 

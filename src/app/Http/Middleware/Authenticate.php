@@ -15,7 +15,7 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if (! $request->expectsJson()) {
+        if (!$request->expectsJson()) {
             if ($request->path() == "oauth/authorize" && $request->query('client_id') && $request->query('client_id') == \Config::get('app.next_app_client_id')) {
                 return route('login', ['client_id' => 'nextapp']);
             }
